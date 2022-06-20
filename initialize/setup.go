@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"github.com/gaochuwuhan/goutils"
 	"github.com/gaochuwuhan/goutils/logger"
+	"github.com/gaochuwuhan/goutils/pkg/cafe"
 	"github.com/gaochuwuhan/goutils/pkg/serve"
 )
 
@@ -22,6 +23,8 @@ func InitService(){
 	logger.Log=serve.Zap()
 	logger.Log.Sugar().Infof("[ =========== current env:%v ===========]",goutils.ENV)
 	//初始化全局mysql DB
-	goutils.DB=serve.GormMysql()
+	if goutils.VP.GetString(cafe.JoinStr(goutils.ENV,".db_enable")) == true{
+		goutils.DB=serve.GormMysql()
+	}
 
 }

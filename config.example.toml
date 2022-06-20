@@ -1,0 +1,36 @@
+env = "dev"
+
+[dev]
+mysqlconn = "root:123456@tcp(127.0.0.1:33060)/cloud?charset=utf8mb4&parseTime=True&loc=Local"
+redisconn = "127.0.0.1:63790"
+redispasswd = "123456"
+redisdb = 0
+tcpNsqdAddr = "127.0.0.1:4150"
+db_enable = true
+
+
+[dev.log]
+level = "info"
+dir = "logs"
+prefix = "[app]"
+[dev.thirdpart.feishu]
+app_id = "xx"
+app_secret = "xx"
+
+
+[prod]
+mysqlconn = "root:123456@tcp(127.0.0.1:33060)/cloud?charset=utf8mb4&parseTime=True&loc=Local"
+redisconn = "your-redis:6379"
+redispasswd = "123"
+redisdb = 7
+tcpNsqdAddr = "10.210.93.201:4150"
+db_enable = true
+
+
+[prod.log]
+level = "info"
+dir = "logs"
+prefix = "[app]"
+[prod.thirdpart.feishu]
+app_id = "xx"
+app_secret = "xx"
