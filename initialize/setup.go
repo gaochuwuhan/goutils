@@ -23,7 +23,7 @@ func InitService(){
 	logger.Log=serve.Zap()
 	logger.Log.Sugar().Infof("[ =========== current env:%v ===========]",goutils.ENV)
 	//初始化全局mysql DB
-	if goutils.VP.GetString(cafe.JoinStr(goutils.ENV,".db_enable")) == true{
+	if goutils.VP.GetBool(cafe.JoinStr(goutils.ENV,".db_enable")) == true{
 		goutils.DB=serve.GormMysql()
 	}
 
